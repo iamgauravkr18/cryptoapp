@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio Dashboard</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <style>
+      /* Custom CSS */
+      .dashboard-container {
+        display: flex;
+        flex-wrap: wrap;
+      }
+
+      .sidebar {
+        background-color: #f8f9fa;
+        padding: 20px;
+        border-right: 1px solid #dee2e6;
+      }
+
+      .main-content {
+        flex: 1;
+        padding: 20px;
+      }
+
+      .stock-list {
+        list-style: none;
+        padding: 0;
+      }
+
+      .stock-list li {
+        padding: 10px;
+        border-bottom: 1px solid #dee2e6;
+      }
+
+      .stock-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .stock-item div {
+        flex: 1;
+      }
+
+      .stock-buttons {
+        flex: 0 0 auto;
+      }
+
+      .stock-buttons button {
+        margin-left: 5px;
+      }
+
+      @media (max-width: 768px) {
+        .dashboard-container {
+          flex-direction: column;
+        }
+
+        .sidebar {
+          border-right: none;
+          border-bottom: 1px solid #dee2e6;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">CryptoTrading</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Trade</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="Portfolio.html">Portfolio</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="login.html">Login</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container mt-4 dashboard-container">
+      <aside class="col-md-3 sidebar">
+        <h4>Options</h4>
+        <ul class="list-group">
+          <li class="list-group-item"><a href="#">IPO</a></li>
+          <li class="list-group-item"><a href="#">SIP</a></li>
+          <li class="list-group-item"><a href="#">Mutual Fund</a></li>
+        </ul>
+      </aside>
+      <section class="col-md-9 main-content">
+        <h2>Portfolio</h2>
+        <ul class="stock-list">
+          <li>
+            <div class="stock-item">
+              <div>Stock Name</div>
+              <div>Buy Price</div>
+              <div>Current Price</div>
+              <div class="stock-buttons">Actions</div>
+            </div>
+          </li>
+          <!-- Example Stock Entry -->
+          <li>
+            <div class="stock-item">
+              <div>Apple Inc. (AAPL)</div>
+              <div>$120.00</div>
+              <div>$145.00</div>
+              <div class="stock-buttons">
+                <button class="btn btn-success btn-sm">Buy</button>
+                <button class="btn btn-danger btn-sm">Sell</button>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="stock-item">
+              <div>Microsoft Corp. (MSFT)</div>
+              <div>$210.00</div>
+              <div>$220.00</div>
+              <div class="stock-buttons">
+                <button class="btn btn-success btn-sm">Buy</button>
+                <button class="btn btn-danger btn-sm">Sell</button>
+              </div>
+            </div>
+          </li>
+          <!-- Add more stock entries as needed -->
+        </ul>
+      </section>
+    </main>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  </body>
+</html>

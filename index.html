@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Crypto Trading Platform</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      /* Custom CSS for ticker and graphs */
+      .ticker {
+        overflow: hidden;
+        white-space: nowrap;
+        box-sizing: border-box;
+      }
+
+      .ticker-item {
+        display: inline-block;
+        padding-right: 2rem;
+        font-size: 1rem;
+        line-height: 1.5;
+      }
+
+      .chart-container {
+        position: relative;
+        height: 400px;
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">CryptoTrading</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link active" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#" id="tradeLink">Trade</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="Portfolio.html" id="portfolioLink">Portfolio</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="login.html" id="loginLink">Login</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container mt-4">
+      <section id="newsTicker" class="mb-4">
+        <h2>Crypto News</h2>
+        <div class="ticker">
+          <div class="ticker-item">
+            Breaking: Bitcoin hits new all-time high!
+          </div>
+          <div class="ticker-item">
+            Ethereum sees major updates in smart contracts.
+          </div>
+          <div class="ticker-item">
+            Regulations on crypto trading are changing in Europe.
+          </div>
+        </div>
+      </section>
+
+      <section id="marketUpdates" class="mb-4">
+        <h2>Market Updates</h2>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">Top Gainers</h5>
+                <ul class="list-group">
+                  <li class="list-group-item">Bitcoin (BTC) +5.6%</li>
+                  <li class="list-group-item">Ethereum (ETH) +3.4%</li>
+                  <li class="list-group-item">Ripple (XRP) +2.1%</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">Top Losers</h5>
+                <ul class="list-group">
+                  <li class="list-group-item">Chainlink (LINK) -4.2%</li>
+                  <li class="list-group-item">Polkadot (DOT) -3.1%</li>
+                  <li class="list-group-item">Litecoin (LTC) -2.5%</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="marketGraphs" class="mb-4">
+        <h2>Market Graphs</h2>
+        <div class="chart-container">
+          <canvas id="marketChart"></canvas>
+        </div>
+      </section>
+
+      <section id="loginSection" class="d-none">
+        <h2>Login</h2>
+        <form id="loginForm">
+          <div class="form-group">
+            <input
+              type="text"
+              id="username"
+              class="form-control"
+              placeholder="Username"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <input
+              type="password"
+              id="password"
+              class="form-control"
+              placeholder="Password"
+              required
+            />
+          </div>
+          <button type="submit" class="btn btn-primary">Login</button>
+        </form>
+      </section>
+
+      <section id="tradingPlatform" class="d-none">
+        <h2>Trading Platform</h2>
+        <!-- Add your trading platform UI here -->
+      </section>
+
+      <section id="portfolio" class="d-none">
+        <h2>Portfolio</h2>
+        <!-- Add your portfolio UI here -->
+      </section>
+
+      <section id="adminPanel" class="d-none">
+        <h2>Admin Panel</h2>
+        <!-- Add your admin panel UI here -->
+      </section>
+    </main>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+      // Initialize ticker
+      const ticker = document.querySelector(".ticker");
+      const tickerItems = ticker.innerHTML;
+      setInterval(() => {
+        ticker.innerHTML = tickerItems;
+      }, 5000); // Adjust timing as needed
+
+      // Example Chart.js script for the market graph
+      var ctx = document.getElementById("marketChart").getContext("2d");
+      var marketChart = new Chart(ctx, {
+        type: "line",
+        data: {
+          labels: ["January", "February", "March", "April", "May", "June"],
+          datasets: [
+            {
+              label: "Bitcoin Price",
+              data: [30000, 32000, 31000, 34000, 33000, 35000],
+              borderColor: "#007bff",
+              backgroundColor: "rgba(0, 123, 255, 0.2)",
+              borderWidth: 1,
+            },
+          ],
+        },
+        options: {
+          scales: {
+            y: {
+              beginAtZero: true,
+            },
+          },
+        },
+      });
+    </script>
+  </body>
+</html>
